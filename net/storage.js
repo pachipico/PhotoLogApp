@@ -29,6 +29,7 @@ export const readById = async id => {
 
 export const append = async value => {
   const data = await read(KEY);
+
   data.push({
     ...value,
     id: new Date().getTime().toString(),

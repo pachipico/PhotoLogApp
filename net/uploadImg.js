@@ -34,7 +34,7 @@ const uploadImg = async () => {
         });
       })
       .catch(error => {
-        reject(error.data.data.error);
+        reject(error.data);
       });
   });
 };

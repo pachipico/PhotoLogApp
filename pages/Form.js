@@ -23,7 +23,7 @@ const Input = styled.TextInput`
   border: 1px solid #e5e5e5;
 `;
 
-const Form = () => {
+const Form = ({navigation}) => {
   const [hashtags, setHashtags] = useState('');
   const [imgUrl, setImgUrl] = useState('https://placeimg.com/640/480/any');
   const [logList, setLogList] = useState([]);
@@ -37,7 +37,7 @@ const Form = () => {
             .then(response => {
               setImgUrl(response);
             })
-            .catch(error => alert(error.message));
+            .catch(error => console.log(error));
         }}
       />
       <Image
@@ -55,7 +55,7 @@ const Form = () => {
         title="Save"
         onPress={() => {
           const newLog = {hashtags, imgUrl};
-          append(newLog).then(response => console.log(response));
+          append(newLog).then(navigation.goBack());
         }}
       />
     </>
